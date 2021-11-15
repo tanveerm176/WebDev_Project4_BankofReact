@@ -6,6 +6,7 @@ class Credits extends Component{
     constructor(){
         super()
         this.state={
+            // object which holds amount, description, and date
             CreditObj:{
                 amount:0,
                 description:"",
@@ -14,6 +15,7 @@ class Credits extends Component{
         }
     }
 
+    //function to handle the addition of a new credit amount
     handleAmountChange = (e)=>{
         const addedAmount = parseFloat(e.target.value)
         const updatedObj = {...this.state.CreditObj}
@@ -21,6 +23,7 @@ class Credits extends Component{
         this.setState({CreditObj: updatedObj})
     }
 
+    //function to handle the addition of a new credit description
     handleDescriptionChange = (e)=>{
         const newDescription = e.target.value
         const updatedObj = {...this.state.CreditObj}
@@ -28,6 +31,7 @@ class Credits extends Component{
         this.setState({CreditObj: updatedObj})
     }
 
+    //function to handle the addition of a new credit object with the current time and date
     handleSubmit = (e) =>{
         e.preventDefault()
         const dateObj = new Date()
@@ -38,6 +42,7 @@ class Credits extends Component{
 
     render(){
         return(
+            //display the debit array's amount, description, and date
             <div>
             <Link to="/">Home</Link>
             <h1>Credits</h1>

@@ -6,6 +6,7 @@ class Debits extends Component{
     constructor(){
         super()
         this.state = {
+            // object which holds amount, description, and date
             DebitObj : {
                 amount: 0,
                 description: "",
@@ -15,6 +16,7 @@ class Debits extends Component{
         }
     }
 
+    //function to handle the addition of a new debit amount
     handleAmountChange = (e)=>{
         const addedAmount = parseFloat(e.target.value)
         const updatedObj = {...this.state.DebitObj}
@@ -22,6 +24,7 @@ class Debits extends Component{
         this.setState({DebitObj: updatedObj})
     }
 
+    //function to handle the addition of a new debit description
     handleDescriptionChange = (e)=>{
         const newDescription = e.target.value
         const updatedObj = {...this.state.DebitObj}
@@ -30,6 +33,7 @@ class Debits extends Component{
 
     }
 
+    //function to handle the addition of a new debit object with the current time and date
     handleSubmit = (e) =>{
         e.preventDefault()
 
@@ -42,6 +46,7 @@ class Debits extends Component{
 
     render(){
         return(
+            //display the debit array's amount, description, and date
             <div>
                 <Link to="/">Home</Link>
                 <h1>Debits</h1>
