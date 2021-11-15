@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/WebDev_Project4_BankofReact/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/WebDev_Project4_BankofReact/static/js/main.c9f3fdf1.chunk.js",
+    "main.js.map": "/WebDev_Project4_BankofReact/static/js/main.c9f3fdf1.chunk.js.map",
+    "runtime-main.js": "/WebDev_Project4_BankofReact/static/js/runtime-main.93e429cf.js",
+    "runtime-main.js.map": "/WebDev_Project4_BankofReact/static/js/runtime-main.93e429cf.js.map",
+    "static/js/2.332e786a.chunk.js": "/WebDev_Project4_BankofReact/static/js/2.332e786a.chunk.js",
+    "static/js/2.332e786a.chunk.js.map": "/WebDev_Project4_BankofReact/static/js/2.332e786a.chunk.js.map",
+    "static/js/3.93b95bd7.chunk.js": "/WebDev_Project4_BankofReact/static/js/3.93b95bd7.chunk.js",
+    "static/js/3.93b95bd7.chunk.js.map": "/WebDev_Project4_BankofReact/static/js/3.93b95bd7.chunk.js.map",
+    "index.html": "/WebDev_Project4_BankofReact/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/WebDev_Project4_BankofReact/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.332e786a.chunk.js.LICENSE.txt": "/WebDev_Project4_BankofReact/static/js/2.332e786a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.93e429cf.js",
+    "static/js/2.332e786a.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.c9f3fdf1.chunk.js"
+  ]
+}
