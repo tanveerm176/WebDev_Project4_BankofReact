@@ -1,7 +1,7 @@
 //home page, debits page, credits page, 
 
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LogIn from './components/Login';
@@ -14,7 +14,7 @@ class App extends Component{
   constructor(){
     super();
     this.state={
-      accountBalance: 14568.27,
+      accountBalance:0,
       currentUser: {
         userName: "joe_shmo",
         memberSince: "07/23/96",
@@ -28,11 +28,25 @@ class App extends Component{
     const resultDebits = await axios.get('https://moj-api.herokuapp.com/debits')
     const debits = resultDebits.data
 
+    let debitCounter= 0
+    debits.forEach(debit => {
+      debitCounter += debit.amount
+    });
+    console.log(debitCounter)
+
     const resultCredits = await axios.get('https://moj-api.herokuapp.com/credits')
     const credits = resultCredits.data
 
-    console.log(debits)
-    this.setState({debitsData: debits, creditsData: credits})
+    let creditCounter= 0
+    credits.forEach(credit => {
+      creditCounter += credit.amount
+    });
+    console.log(creditCounter)
+
+    const newBalance = debitCounter - creditCounter
+
+    // console.log(debits)
+    this.setState({debitsData: debits, creditsData: credits, accountBalance: newBalance})
     // this.setState({creditsData: credits})
   }
 
