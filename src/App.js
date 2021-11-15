@@ -19,16 +19,21 @@ class App extends Component{
         userName: "joe_shmo",
         memberSince: "07/23/96",
       },
-      debitsData:[]
+      debitsData:[],
+      creditsData:[]
     }
   }
 
   makeAPIRequest = async()=>{
-    const result = await axios.get('https://moj-api.herokuapp.com/debits')
-    const debits = result.data
+    const resultDebits = await axios.get('https://moj-api.herokuapp.com/debits')
+    const debits = resultDebits.data
+
+    const resultCredits = await axios.get('https://moj-api.herokuapp.com/credits')
+    const credits = resultCredits.data
 
     console.log(debits)
-    this.setState({debitsData: debits})
+    this.setState({debitsData: debits, creditsData: credits})
+    // this.setState({creditsData: credits})
   }
 
   mockLogIn = (logInInfo)=>{
@@ -47,6 +52,16 @@ class App extends Component{
     this.setState({accountBalance: accBalance})
   }
 
+  updateCredit = (newCredit)=>{
+    const accBalance = parseFloat(this.state.accountBalance) - newCredit.amount
+    const credits = this.state.creditsData
+    credits.push(newCredit)
+    
+
+    this.setState({creditsData: credits})
+    this.setState({accountBalance: accBalance})
+  }
+
   componentDidMount(){
     this.makeAPIRequest()
   }
@@ -57,7 +72,7 @@ class App extends Component{
     const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
     const UserProfileComponent = () => (<UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}/>);
     const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance} updateDebit={this.updateDebit} debitsArray={this.state.debitsData}/>)
-    const CreditsComponent = () =>(<Credits accountBalance={this.state.accountBalance}/>)
+    const CreditsComponent = () =>(<Credits accountBalance={this.state.accountBalance} updateCredit={this.updateCredit} creditsArray={this.state.creditsData}/>)
 
     return(
       <Router>
